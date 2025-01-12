@@ -27,11 +27,13 @@ public class Topico {
     private String autor;
     private String curso;
 
+    public Topico(){}
+
     public Topico(DadosCadastroTopico dados) {
         this.titulo = dados.titulo();
         this.mensagem = dados.mensagem();
-        this.dataCriacao = dados.dataCriacao();
-        this.status = dados.status();
+        this.dataCriacao = LocalDateTime.now();
+        this.status = Status.NAO_RESPONDIDO;
         this.autor = dados.autor();
         this.curso = dados.curso();
     }
@@ -64,6 +66,21 @@ public class Topico {
         return curso;
     }
 
+    public void atualizarTopico(DadosAtualizacaoTopico dados) {
+        if(dados.título()!= null){
+            this.titulo = dados.título();
+        }
+
+        if(dados.mensagem()!= null){
+            this.mensagem = dados.mensagem();
+        }
+
+        if(dados.status()!= null){
+            this.status = dados.status();
+        }
+
+    }
+
     @Override
     public String toString() {
         return "Topico{" +
@@ -76,5 +93,7 @@ public class Topico {
                 ", curso='" + curso + '\'' +
                 '}';
     }
+
+
 }
 
