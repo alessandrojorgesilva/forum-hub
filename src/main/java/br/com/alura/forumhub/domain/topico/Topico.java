@@ -10,10 +10,6 @@ import java.time.LocalDateTime;
 
 @Entity(name = "Topico")
 @Table(name = "topicos")
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@EqualsAndHashCode(of = "id")
 public class Topico {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
